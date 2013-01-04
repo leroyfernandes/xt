@@ -1,0 +1,22 @@
+/*  Styles override  */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px; }
+
+.navbar-fixed-top {
+  /* On resizing the screen the fixed navbar is wrongly repositioned */
+  top: 0; }
+
+/* END Styles override */
+#spendtable .st-date {
+  width: 15%; }
+#spendtable .st-title {
+  width: 47%; }
+#spendtable .st-category {
+  width: 25%; }
+#spendtable .st-amount {
+  width: 13%; }
+#spendtable table thead tr th:last-child {
+  text-align: right; }
+#spendtable table tbody tr td:last-child {
+  text-align: right; }

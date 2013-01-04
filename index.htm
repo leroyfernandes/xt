@@ -10,6 +10,8 @@
   <!-- Application styles. -->
 
   <link rel="stylesheet" href="app/styles/index.css">
+  <link rel="stylesheet" href="app/styles/main.css">
+
 
 </head>
 
@@ -23,7 +25,7 @@
           <span class="icon-bar"></span>
         </a>
         <a class="brand" href="#">xpense tracker</a>
-        <div class="nav-collapse collapse" style="height: 0px; ">
+        <!-- <div class="nav-collapse collapse" style="height: 0px; ">
           <p class="navbar-text pull-right">
             Logged in as <a href="#" class="navbar-link">Username</a>
           </p>
@@ -32,18 +34,122 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div><!--/.nav-collapse -- > -->
       </div>
     </div>
   </div>
   <div class="container">
-    <h1>This is it</h1>
+    <div class="row">
+      <div class="span5">
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="inputTitle">Title</label>
+            <div class="controls">
+              <input type="text" id="inputTitle" name="title">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputDate">Date</label>
+            <div class="controls">
+              <div class="input-append">
+                <input class="span2" id="appendedInputButton" type="text">
+                <button class="btn" type="button"><i class="icon-calendar"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputCategory">Category</label>
+            <div class="controls">
+              <select name="category">
+                <option>-- Select --</option>
+                <option>Rent</option>
+                <option>Groceries</option>
+                <option>Household</option>
+                <option>Entertainment</option>
+                <option>Eating out</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputAmount">Amount</label>
+            <div class="controls">
+              <input type="text" id="inputAmount" name="amount">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+
+      <div class="span7">
+        <div class="row">
+          <div class="span7">
+            <div class="control-group">
+              <label class="control-label" for="selectCategory">Category</label>
+              <div class="controls">
+                <select name="category">
+                  <option>-- Select --</option>
+                  <option>Rent</option>
+                  <option>Groceries</option>
+                  <option>Household</option>
+                  <option>Entertainment</option>
+                  <option>Eating out</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="span7">
+            <div id="spendtable">
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th class="st-date">Date</th>
+                    <th class="st-title">Title</th>
+                    <th class="st-category">Category</th>
+                    <th class="st-amount">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Application source. -->
 
   <script data-main="app/js/config" src="vendor/js/libs/require.js"></script>
-  
+
 
 </body>
 </html>

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     // https://github.com/cowboy/grunt/blob/master/docs/task_lint.md
     lint: {
       files: [
-        "build/config.js", "app/**/*.js"
+        "grunt.js", "app/js/*.js", "test/qunit/*.js"
       ]
     },
 
@@ -21,9 +21,32 @@ module.exports = function(grunt) {
     jshint: {
       options: {
         scripturl: true
+        /*, curly: true,
+        eqeqeq: true,
+        immed: true,
+        latedef: true,
+        newcap: true,
+        noarg: true,
+        sub: true,
+        undef: true,
+        boss: true,
+        eqnull: true,
+        node: true,
+        es5: true,
+        strict: false*/
+      },
+      globals: {
+        window: true,
+        require: true,
+        define: true,
+        Backbone: true,
+        $: true,
+        _: true
       }
     },
+    uglify: {
 
+    },
     // The jst task compiles all application templates into JavaScript
     // functions with the underscore.js template function from 1.2.4.  You can
     // change the namespace and the template options, by reading this:
@@ -175,15 +198,6 @@ module.exports = function(grunt) {
       all: ["test/jasmine/*.html"]
     },
 
-    // The watch task can be used to monitor the filesystem and execute
-    // specific tasks when files are modified.  By default, the watch task is
-    // available to compile CSS if you are unable to use the runtime compiler
-    // (use if you have a custom server, PhoneGap, Adobe Air, etc.)
-    watch: {
-      files: ["grunt.js", "vendor/**/*", "app/**/*"],
-      tasks: "styles"
-    },
-
     // The clean task ensures all files are removed from the dist/ directory so
     // that no files linger from previous builds.
     clean: ["dist/"],
@@ -223,17 +237,29 @@ module.exports = function(grunt) {
     //}
 
     sass: {
+      files: [
+        'app/styles/main.scss'
+      ],
       compile: {
         files: {
-          'app/styles/test.css': 'app/styles/test.scss'
+          'app/styles/main.css': 'app/styles/main.scss'
         }
       }
     },
 
+    // The watch task can be used to monitor the filesystem and execute
+    // specific tasks when files are modified.  By default, the watch task is
+    // available to compile CSS if you are unable to use the runtime compiler
+    // (use if you have a custom server, PhoneGap, Adobe Air, etc.)
+    watch: {
+      files: ["grunt.js", "<config:lint.files>", "<config:sass.files>"],
+      tasks: "lint sass"
+    }
+
   });
   
   grunt.loadNpmTasks('grunt-sass');
-  
+
   // The debug task will remove all contents inside the dist/ folder, lint
   // all your code, precompile all the underscore templates into
   // dist/debug/templates.js, compile all the application code into

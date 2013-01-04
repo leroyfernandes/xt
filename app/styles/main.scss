@@ -1,0 +1,38 @@
+/*  Styles override  */
+
+body{
+	padding: { /* Padding applied to indent content from under the navbar */
+		top: 60px;
+		bottom: 40px;
+	}
+}
+
+
+.navbar-fixed-top{ /* On resizing the screen the fixed navbar is wrongly repositioned */
+	top: 0;
+}
+
+/* END Styles override */
+
+#spendtable{
+	.st-date{
+		width: 15%;
+	}
+	.st-title{
+		width: 47%;
+	}
+	.st-category{
+		width: 25%;
+	}
+	.st-amount{
+		width: 13%;
+	}
+	table {
+		thead tr th:last-child{
+			text-align: right;
+		}
+		tbody tr td:last-child{
+			text-align: right;
+		}
+	}
+}
