@@ -54,11 +54,11 @@ module.exports = function(grunt) {
     //
     // The concat task depends on this file to exist, so if you decide to
     // remove this, ensure concat is updated accordingly.
-    jst: {
+    /*jst: {
       "dist/debug/templates.js": [
-        "app/templates/**/*.html"
+        "app/templates/**     /*.html"
       ]
-    },
+    },*/
 
     // This task simplifies working with CSS inside Backbone Boilerplate
     // projects.  Instead of manually specifying your stylesheets inside the
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 
     // This task uses James Burke's excellent r.js AMD build tool.  In the
     // future other builders may be contributed as drop-in alternatives.
-    requirejs: {
+    /*requirejs: {
       // Include the main configuration file.
       mainConfigFile: "app/config.js",
 
@@ -99,13 +99,13 @@ module.exports = function(grunt) {
 
       // Do not wrap everything in an IIFE.
       wrap: false
-    },
+    },*/
 
     // The concatenate task is used here to merge the almond require/define
     // shim and the templates into the application code.  It's named
     // dist/debug/require.js, because we want to only load one script file in
     // index.html.
-    concat: {
+    /*concat: {
       dist: {
         src: [
           "vendor/js/libs/almond.js",
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
 
         separator: ";"
       }
-    },
+    },*/
 
     // This task uses the MinCSS Node.js project to take all your CSS files in
     // order and concatenate them into a single CSS file named index.css.  It
@@ -130,11 +130,11 @@ module.exports = function(grunt) {
     },
 
     // Takes the built require.js file and minifies it for filesize benefits.
-    min: {
+    /*min: {
       "dist/release/require.js": [
         "dist/debug/require.js"
       ]
-    },
+    },*/
 
     // Running the server without specifying an action will run the defaults,
     // port: 8000 and host: 127.0.0.1.  If you would like to change these
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
     //
     //  To learn more about using the server task, please refer to the code
     //  until documentation has been written.
-    server: {
+    /*server: {
       // Ensure the favicon is mapped correctly.
       files: { "favicon.ico": "favicon.ico" },
 
@@ -184,23 +184,23 @@ module.exports = function(grunt) {
           "app/styles": "dist/release"
         }
       }
-    },
+    },*/
 
     // The headless QUnit testing environment is provided for "free" by Grunt.
     // Simply point the configuration to your test directory.
-    qunit: {
+    /*qunit: {
       all: ["test/qunit/*.html"]
-    },
+    },*/
 
     // The headless Jasmine testing is provided by grunt-jasmine-task. Simply
     // point the configuration to your test directory.
-    jasmine: {
+    /*jasmine: {
       all: ["test/jasmine/*.html"]
-    },
+    },*/
 
     // The clean task ensures all files are removed from the dist/ directory so
     // that no files linger from previous builds.
-    clean: ["dist/"],
+    //clean: ["dist/"],
 
     // If you want to generate targeted `index.html` builds into the `dist/`
     // folders, uncomment the following configuration block and use the

@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <main role="main" id="main">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
@@ -40,19 +41,19 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="span5">
-        <form class="form-horizontal">
+      <div class="span3">
+        <form>
           <div class="control-group">
             <label class="control-label" for="inputTitle">Title</label>
             <div class="controls">
-              <input type="text" id="inputTitle" name="title">
+              <input id="recordTitle" type="text" name="title">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="inputDate">Date</label>
+            <label class="control-label" for="inputDate">Date(mm/dd/yyyy)</label>
             <div class="controls">
               <div class="input-append">
-                <input class="span2" id="appendedInputButton" type="text">
+                <input id="recordDate" class="span2" id="appendedInputButton" type="text">
                 <button class="btn" type="button"><i class="icon-calendar"></i></button>
               </div>
             </div>
@@ -60,7 +61,7 @@
           <div class="control-group">
             <label class="control-label" for="inputCategory">Category</label>
             <div class="controls">
-              <select name="category">
+              <select id="recordCategory" name="category">
                 <option>-- Select --</option>
                 <option>Rent</option>
                 <option>Groceries</option>
@@ -73,39 +74,35 @@
           <div class="control-group">
             <label class="control-label" for="inputAmount">Amount</label>
             <div class="controls">
-              <input type="text" id="inputAmount" name="amount">
+              <input id="recordAmount" type="text" name="amount">
             </div>
           </div>
           <div class="control-group">
             <div class="controls">
-              <button type="submit" class="btn">Submit</button>
+              <button type="submit" id="addRecord" class="btn">Add Record</button>
             </div>
           </div>
           
         </form>
       </div>
 
-      <div class="span7">
-        <div class="row">
-          <div class="span7">
-            <div class="control-group">
-              <label class="control-label" for="selectCategory">Category</label>
-              <div class="controls">
-                <select name="category">
-                  <option>-- Select --</option>
-                  <option>Rent</option>
-                  <option>Groceries</option>
-                  <option>Household</option>
-                  <option>Entertainment</option>
-                  <option>Eating out</option>
-                </select>
-              </div>
-            </div>
+      <div class="span9">
+        <div class="control-group">
+          <label class="control-label" for="selectCategory">Category</label>
+          <div class="controls">
+            <select name="category">
+              <option>-- Select --</option>
+              <option>Rent</option>
+              <option>Groceries</option>
+              <option>Household</option>
+              <option>Entertainment</option>
+              <option>Eating out</option>
+            </select>
           </div>
         </div>
 
         <div class="row">
-          <div class="span7">
+          <div class="span9">
             <div id="spendtable">
               <table class="table table-striped table-bordered">
                 <thead>
@@ -145,10 +142,11 @@
       </div>
     </div>
   </div>
+</main>
 
   <!-- Application source. -->
 
-  <script data-main="app/js/config" src="vendor/js/libs/require.js"></script>
+  <script data-main="app/js/main" src="vendor/js/libs/require.js"></script>
 
 
 </body>
