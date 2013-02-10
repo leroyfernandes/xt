@@ -25,6 +25,7 @@ define(['underscore',	'backbone',	'lib/backbone/localstorage', 'models/record'],
 			if ( !this.length ) {
 				return 1;
 			}
+			console.log('Order: '+ this.last().get('order') + 1);
 			return this.last().get('order') + 1;
 		},
 

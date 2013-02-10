@@ -12,13 +12,17 @@ define(['underscore', 'backbone', 'lib/utilities'],function(_, Backbone, util){
     defaults: {
       date: util.getTodayDate(),
       title: '',
-      category: 'N/A',
-      amount: ""
+      category: 'N/A'
     },
     validate: function(attributes){
       if(attributes.title === "" || attributes.title === undefined){
         console.log('Record title cannot be blank');
         return 'Record title cannot be blank';
+      }
+
+       if(attributes.date === "" || attributes.date === undefined){
+        console.log('Record date cannot be blank');
+        return 'Record date cannot be blank';
       }
     }
 

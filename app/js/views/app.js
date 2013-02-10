@@ -20,10 +20,6 @@ define([
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
-            //'keypress #new-todo':       'createOnEnter',
-            //'click #clear-completed':   'clearCompleted',
-            //'click #toggle-all':        'toggleAllComplete',
-
             'click #addRecord':         'addRecord'
         },
 
@@ -63,11 +59,6 @@ define([
                 this.$main.show();
                 this.$footer.show();
 
-                /*this.$footer.html(this.template({
-                    completed: completed,
-                    remaining: remaining
-                }));*/
-
                 this.$('#filters li a')
                     .removeClass('selected')
                     .filter( '[href="#/' + ( Common.TodoFilter || '' ) + '"]' )
@@ -77,18 +68,18 @@ define([
                 this.$footer.hide();
             }
 
-            /*this.allCheckbox.checked = !remaining;*/
         },
 
         // Add a single todo item to the list by creating a view for it, and
         // appending its element to the `<ul>`.
         addOne: function( record ) {
             var view = new RecordView({ model: record });
-            $('#spendtable table tbody').append( view.render().el );
+            $('#spendtable table tbody').prepend( view.render().el );
         },
 
         // Add all items in the **Todos** collection at once.
         addAll: function() {
+            console.log('addAll');
             this.$('#spendtable table tbody').html('');
             Records.each(this.addOne, this);
         },
@@ -101,34 +92,15 @@ define([
             Records.each(this.filterOne, this);
         },
 
-        // Generate the attributes for a new Todo item.
-        /*newAttributes: function() {
-            return {
-                title: this.input.val().trim(),
-                order: Records.nextOrder(),
-                completed: false
-            };
-        },*/
-
         recordAttributes: function(){
             return {
               title: this.$title.val().trim(),
               date: this.$date.val().trim(),
               category: this.$category.val().trim(),
-              amount: parseFloat(this.$amount.val().trim()).toFixed(2)
+              amount: parseFloat(this.$amount.val().trim()).toFixed(2),
+              order: Records.nextOrder()
             }
         },
-
-        // If you hit return in the main input field, create new **Todo** model,
-        // persisting it to *localStorage*.
-        /*createOnEnter: function( e ) {
-            if ( e.which !== Common.ENTER_KEY || !this.input.val().trim() ) {
-                return;
-            }
-
-            Records.create( this.newAttributes() );
-            this.input.val('');
-        },*/
 
         addRecord: function(e){
             e.preventDefault();
@@ -137,26 +109,6 @@ define([
             //Clear fields
             this.$title.val('');
         }
-        /*,
-
-        // Clear all completed todo items, destroying their models.
-        clearCompleted: function() {
-            _.each( Records.completed(), function( todo ) {
-                todo.destroy();
-            });
-
-            return false;
-        },
-
-        toggleAllComplete: function() {
-            var completed = this.allCheckbox.checked;
-
-            Records.each(function( todo ) {
-                todo.save({
-                    'completed': completed
-                });
-            });
-        }*/
     });
 
     return AppView;

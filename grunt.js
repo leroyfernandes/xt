@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     // https://github.com/cowboy/grunt/blob/master/docs/task_lint.md
     lint: {
       files: [
-        "grunt.js", "app/js/*.js", "test/qunit/*.js"
+        "grunt.js", "app/js/lib/*.js", "test/qunit/*.js"
       ]
     },
 
@@ -20,8 +20,8 @@ module.exports = function(grunt) {
     // route.
     jshint: {
       options: {
-        scripturl: true
-        /*, curly: true,
+        scripturl: true, 
+        curly: true,
         eqeqeq: true,
         immed: true,
         latedef: true,
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         eqnull: true,
         node: true,
         es5: true,
-        strict: false*/
+        strict: false
       },
       globals: {
         window: true,

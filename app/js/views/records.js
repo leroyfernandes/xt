@@ -6,7 +6,7 @@ define([
 	'common'
 ], function( $, _, Backbone, recordsTemplate, Common ) {
 
-	var TodoView = Backbone.View.extend({
+	var RecordView = Backbone.View.extend({
 
 		tagName:  'tr',
 
@@ -14,15 +14,11 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-			/*'click .toggle':	'togglecompleted',
-			'dblclick label':	'edit',
-			'click .destroy':	'clear',
-			'keypress .edit':	'updateOnEnter',
-			'blur .edit':		'close'*/
+
 		},
 
-		// The TodoView listens for changes to its model, re-rendering. Since there's
-		// a one-to-one correspondence between a **Todo** and a **TodoView** in this
+		// The RecordView listens for changes to its model, re-rendering. Since there's
+		// a one-to-one correspondence between a **Record** and a **RecordView** in this
 		// app, we set a direct reference on the model for convenience.
 		initialize: function() {
 			this.model.on( 'change', this.render, this );
@@ -39,23 +35,6 @@ define([
 			/*this.input = this.$('.edit');*/
 			return this;
 		},
-
-		/*toggleVisible : function () {
-			this.$el.toggleClass( 'hidden',  this.isHidden());
-		},*/
-
-		/*isHidden : function () {
-			var isCompleted = this.model.get('completed');
-			return ( // hidden cases only
-				(!isCompleted && Common.TodoFilter === 'completed')
-				|| (isCompleted && Common.TodoFilter === 'active')
-			);
-		},*/
-
-		// Toggle the `"completed"` state of the model.
-		/*togglecompleted: function() {
-			this.model.toggle();
-		},*/
 
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function() {
@@ -89,5 +68,5 @@ define([
 		}
 	});
 
-	return TodoView;
+	return RecordView;
 });
