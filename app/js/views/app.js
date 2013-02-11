@@ -85,7 +85,7 @@ define([
         },
 
         filterOne : function (record) {
-            todo.trigger("visible");
+            //todo.trigger("visible");
         },
 
         filterAll : function () {
@@ -99,15 +99,25 @@ define([
               category: this.$category.val().trim(),
               amount: parseFloat(this.$amount.val().trim()).toFixed(2),
               order: Records.nextOrder()
-            }
+            };
         },
 
         addRecord: function(e){
             e.preventDefault();
-            Records.create( this.recordAttributes() );
+            var addResponse = Records.create( this.recordAttributes() );
 
-            //Clear fields
-            this.$title.val('');
+            /*for(var z in addResponse.attributes){
+              if(addResponse.attributes.hasOwnProperty(z)){
+                console.log(addResponse.attributes[z]);
+              }
+            }*/
+
+            if(addResponse){
+              this.$title.val('').focus();
+              this.$date.val(addResponse.attributes.date);
+              this.$amount.val('');
+            }
+
         }
     });
 
