@@ -7,12 +7,48 @@ body{
 	}
 }
 
+/* Tweaked the padding left of Select box text to match input fields */
+select{
+	padding-left: 2px;
+}
 
 .navbar-fixed-top{ /* On resizing the screen the fixed navbar is wrongly repositioned */
 	top: 0;
 }
 
+.input-append{
+	position: relative;
+	margin-bottom: 10px;
+	button{
+		position: absolute;
+		right: 0%;
+	}
+}
+
+/* TODO: The @media breaks grunt build 
+@media screen and (max-width: 767px){
+	input{
+		&[class*='span']{
+			display: block;
+			width: 100%;
+		}
+	}
+}
+*/
+
 /* END Styles override */
+
+/* #view-records */
+
+#select-category{
+	label{
+		width: auto;
+		padding-right: 15px;
+	}
+	.controls{
+		margin-left: 0;
+	}
+}
 
 #spendtable{
 	.st-date{
@@ -36,3 +72,5 @@ body{
 		}
 	}
 }
+
+/* END #view-records */
