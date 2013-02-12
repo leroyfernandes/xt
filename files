@@ -2,10 +2,16 @@
 body {
   padding-top: 60px;
   padding-bottom: 40px; }
+  @media (max-width: 979px) {
+    body {
+      padding-top: 0; } }
 
-/* Tweaked the padding left of Select box text to match input fields */
+/* Tweaked the padding-left of Select box text to align to input fields padding */
 select {
-  padding-left: 2px; }
+  padding-left: 2px;
+  /*option[value="0"]{
+		color: #777;
+	}*/ }
 
 .navbar-fixed-top {
   /* On resizing the screen the fixed navbar is wrongly repositioned */
@@ -14,6 +20,8 @@ select {
 .input-append {
   position: relative;
   margin-bottom: 10px; }
+  .input-append input {
+    border-radius: 4px; }
   .input-append button {
     position: absolute;
     right: 0%; }
@@ -29,6 +37,11 @@ select {
 }
 */
 /* END Styles override */
+/* Main tabs .tabbable */
+.tabbable .nav.nav-tabs li#tabSettings {
+  float: right; }
+
+/* END Main tabs .tabbable */
 /* #view-records */
 #select-category label {
   width: auto;

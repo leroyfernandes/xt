@@ -117,7 +117,6 @@ define([
               this.$date.val(addResponse.attributes.date);
               this.$amount.val('');
             }
-
         }
     });
 

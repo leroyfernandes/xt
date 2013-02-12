@@ -5,11 +5,17 @@ body{
 		top: 60px;
 		bottom: 40px;
 	}
+	@media (max-width: 979px){
+		padding-top: 0;
+	}
 }
 
-/* Tweaked the padding left of Select box text to match input fields */
+/* Tweaked the padding-left of Select box text to align to input fields padding */
 select{
 	padding-left: 2px;
+	/*option[value="0"]{
+		color: #777;
+	}*/
 }
 
 .navbar-fixed-top{ /* On resizing the screen the fixed navbar is wrongly repositioned */
@@ -19,6 +25,9 @@ select{
 .input-append{
 	position: relative;
 	margin-bottom: 10px;
+	input{
+		border-radius: 4px;
+	}
 	button{
 		position: absolute;
 		right: 0%;
@@ -37,6 +46,18 @@ select{
 */
 
 /* END Styles override */
+
+/* Main tabs .tabbable */
+
+.tabbable{
+	.nav.nav-tabs{
+		li#tabSettings{
+			float: right;
+		}
+	}
+}
+
+/* END Main tabs .tabbable */
 
 /* #view-records */
 

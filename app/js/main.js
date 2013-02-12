@@ -4,7 +4,10 @@ require.config({
     jquery: 'lib/jquery/jquery.min',
     underscore: 'assets/lodash.min',
     backbone: 'lib/backbone/backbone',
-    text: 'lib/require/text'
+    text: 'lib/require/text',
+
+    bootstrapjs: 'lib/bootstrap/bootstrap'
+
   },
   // The shim config allows us to configure dependencies for
   // scripts that do not call define() to register a module
@@ -18,6 +21,12 @@ require.config({
         'jquery'
       ],
       exports: 'Backbone'
+    },
+    'bootstrapjs': {
+      deps: [
+        'jquery'
+      ],
+      exports: 'BootstrapJS'
     }
   }
 });
@@ -28,8 +37,9 @@ require([
 ], function( AppView, Workspace ) {
   // Initialize routing and start Backbone.history()
   new Workspace();
-  Backbone.history.start();
 
   // Initialize the application view
   new AppView();
+
+  Backbone.history.start();
 });
