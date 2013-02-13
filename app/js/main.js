@@ -39,7 +39,7 @@ require([
   new Workspace();
 
   // Initialize the application view
-  new AppView();
+  //new AppView();
 
   Backbone.history.start();
 });

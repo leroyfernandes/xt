@@ -2,9 +2,10 @@ define([
   'jquery',
   'backbone',
   'collections/records',
+  'views/app',
   'views/settings',
   'common'
-], function( $, Backbone, Records, SettingsView, Common ) {
+], function( $, Backbone, Records, AppView, SettingsView, Common ) {
 
   var Workspace = Backbone.Router.extend({
     routes:{
@@ -19,6 +20,11 @@ define([
       console.log('router: main2');
       $('li, ul.nav').removeClass('active')
         .end().find('#liRecords').addClass('active');
+
+      var view = new AppView();
+      $('#holderMain').html( view.render().el );
+      view.fetchRecords();
+
     },
 
     setFilter: function( param ) {
