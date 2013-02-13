@@ -2,23 +2,23 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/record.html',
+	'text!templates/category.html',
 	'common'
-], function( $, _, Backbone, recordsTemplate, Common ) {
+], function( $, _, Backbone, categoryListTemplate, Common ) {
 
-	var RecordView = Backbone.View.extend({
+	var CategoryListView = Backbone.View.extend({
 
-		tagName:  'tr',
+		tagName:  'li',
 
-		template: _.template( recordsTemplate ),
+		template: _.template( categoryListTemplate ),
 
 		// The DOM events specific to an item.
 		events: {
 
 		},
 
-		// The RecordView listens for changes to its model, re-rendering. Since there's
-		// a one-to-one correspondence between a **Record** and a **RecordView** in this
+		// The CategoryListView listens for changes to its model, re-rendering. Since there's
+		// a one-to-one correspondence between a **Record** and a **CategoryListView** in this
 		// app, we set a direct reference on the model for convenience.
 		initialize: function() {
 			this.model.on( 'change', this.render, this );
@@ -68,5 +68,5 @@ define([
 		}
 	});
 
-	return RecordView;
+	return CategoryListView;
 });

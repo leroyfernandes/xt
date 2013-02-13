@@ -1,6 +1,8 @@
-define(['underscore', 'backbone', 'lib/utilities'],function(_, Backbone, util){
+define(['underscore', 'backbone', 'lib/utilities'],function( _, Backbone, util ){
   var RecordModel = Backbone.Model.extend({
     initialize: function(){
+      console.log('RecordModel init');
+
       this.on('change:title', function(){
         console.log('Record title changed: '+ this.get('title'));
       });

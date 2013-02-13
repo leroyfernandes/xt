@@ -2,8 +2,9 @@ define([
   'jquery',
   'backbone',
   'collections/records',
+  'views/settings',
   'common'
-], function( $, Backbone, Records, Common ) {
+], function( $, Backbone, Records, SettingsView, Common ) {
 
   var Workspace = Backbone.Router.extend({
     routes:{
@@ -36,9 +37,13 @@ define([
     },
 
     onSettings: function(){
-      console.log('router: onSettings');
+      console.log('router: onSettings2');
       $('li, ul.nav').removeClass('active')
         .end().find('#liSettings').addClass('active');
+
+      var view = new SettingsView();
+      $('#holderMain').html( view.render().el );
+      view.fetchCategories();
     }
   });
 
