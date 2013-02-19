@@ -32,22 +32,22 @@ define([
       console.log('app init');
       /*this.input = this.$('#new-todo');*/
       /*this.allCheckbox = this.$('#toggle-all')[0];*/
-      this.$footer = this.$('#footer');
-      this.$main = this.$('#main');
+      /*this.$footer = this.$('#footer');
+      this.$main = this.$('#main');*/
 
       Records.on( 'add', this.addOne, this );
       Records.on( 'reset', this.addAll, this );
-      /*Records.on( 'change:completed', this.filterOne, this );*/
       Records.on( "filter", this.filterAll, this);
       //Records.on( 'all', this.render, this );
+      /*Records.on( 'change:completed', this.filterOne, this );*/
 
-      this.$title = this.$("#recordTitle");
+      /*this.$title = this.$("#recordTitle");
       this.$date = this.$("#recordDate");
       this.$category = this.$("#recordCategory");
-      this.$amount = this.$("#recordAmount");
+      this.$amount = this.$("#recordAmount");*/
 
       //Initial populated values
-      this.$("#recordDate").val(util.getTodayDate());
+      /*this.$("#recordDate").val(util.getTodayDate());*/
     },
 
     // Re-rendering the App just means refreshing the statistics -- the rest
@@ -57,7 +57,7 @@ define([
       var completed = Records.completed().length;
       var remaining = Records.remaining().length;
 
-      if ( Records.length ) {
+      /*if ( Records.length ) {
         this.$main.show();
         this.$footer.show();
 
@@ -68,14 +68,18 @@ define([
       } else {
         this.$main.hide();
         this.$footer.hide();
-      }
+      }*/
       
       this.$el.html(this.template());
       return this;
     },
 
     fetchRecords: function(){
+      console.log('fetchRecords');
       Records.fetch();
+      Records.each(function(record){
+        console.log('record: '+record);
+      });
     },
 
     // Add a single todo item to the list by creating a view for it, and
@@ -123,9 +127,9 @@ define([
       }*/
 
       if(addResponse){
-        this.$title.val('').focus();
+        /*this.$title.val('').focus();
         this.$date.val(addResponse.attributes.date);
-        this.$amount.val('');
+        this.$amount.val('');*/
       }
     }
   });
